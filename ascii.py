@@ -83,7 +83,7 @@ with mp_face_mesh.FaceMesh(refine_landmarks=True, max_num_faces=1) as face_mesh,
         if not success:
             break
 
-        #
+        
         frame = cv2.flip(frame, 1)
         rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
@@ -149,7 +149,7 @@ with mp_face_mesh.FaceMesh(refine_landmarks=True, max_num_faces=1) as face_mesh,
 
                 
                 if hand_index == 1 and len(landmarks) > 8:
-                    lighter_pos = landmarks[8]  # Index finger tip
+                    lighter_pos = landmarks[8]  
                     draw_lighter(display_frame, lighter_pos[0], lighter_pos[1], active=lighter_active)
 
                     
@@ -166,7 +166,7 @@ with mp_face_mesh.FaceMesh(refine_landmarks=True, max_num_faces=1) as face_mesh,
         display_frame, hand_smoke_particles = draw_smoke(display_frame, hand_smoke_particles)
         display_frame, mouth_smoke_particles = draw_smoke(display_frame, mouth_smoke_particles)
 
-        # Show final result
+       
         cv2.imshow("Cigarette + Lighter Simulation", display_frame)
 
         
@@ -175,3 +175,4 @@ with mp_face_mesh.FaceMesh(refine_landmarks=True, max_num_faces=1) as face_mesh,
 
 cap.release()
 cv2.destroyAllWindows()
+
